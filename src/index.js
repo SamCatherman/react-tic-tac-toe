@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+//renders each individual square on game board
 class Square extends React.Component {
+
+  //constructor function to initialize state of a square
+  constructor(){
+    //needed to define constructor of a subclass
+    super();
+    this.state = {
+      value: null,
+    };
+  }
+
   render(){
     return(
-      <button className="square">
-        {this.props.value}
+      <button className="square" onClick={() => this.setState({value: 'X'})}>
+        {this.state.value}
       </button>
     );
   }
 }
 
+//renders nine squares of game board
 class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
@@ -43,6 +55,7 @@ class Board extends React.Component {
   }
 }
 
+//renders full game board, including turn status
 class Game extends React.Component {
   render() {
     return (
