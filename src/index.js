@@ -3,14 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 //renders each individual square on game board
-class Square extends React.Component {
-  render(){
-    return(
-      <button className="square" onClick={() => this.props.onClick()}>
-        {this.props.value}
+function Square(props){
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
       </button>
-    );
-  }
+  );
 }
 
 //renders nine squares of game board
